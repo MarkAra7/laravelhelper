@@ -24,27 +24,24 @@ class ProductController extends Controller
         ];
 
         $product = Product::create($data);
-        return redirect('/products/' . $product->id . '/show');
+        return redirect('/products/' . $product->id);
     }
 
-    public function show($id) {
-        $product = Product::find($id);
-        return view('products.show', ['singleProduct' => $product]);
+    public function show(Product $product) {
+            return view('products.show', ['singleProduct' => $product]);
     }
 
-    public function destroy($id) {
-        $product = Product::find($id);
+    public function destroy(Product $product) {
         $product->delete();
         return redirect('/products/');
     }
 
-    public function edit($id) {
-        $product = Product::find($id);
+    public function edit(Product $product) {
+        
         return view('products.edit', ['singleProduct' => $product]);
     }
 
-    public function update(Request $request, $id) {
-        $product = Product::find($id);
+    public function update(Request $request, Product $product) {
 
         $data = [
             'name' => $request->name,
@@ -53,6 +50,6 @@ class ProductController extends Controller
         ];
 
         $product->update($data);
-        return redirect('/products/' . $product->id . '/show');
+        return redirect('/products/' . $product->id);
     }
 }

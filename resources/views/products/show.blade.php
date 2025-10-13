@@ -2,4 +2,4 @@
 <h4>Quantity: {{ $singleProduct->quantity }}</h4>
 <p>{{ $singleProduct->description }}</p>
 
-<a href="/products">Back to all product list</a>
+<a href="{{ route('products.index') }}">Back to all product list</a>
