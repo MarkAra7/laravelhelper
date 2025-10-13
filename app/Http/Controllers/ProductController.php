@@ -24,7 +24,8 @@ class ProductController extends Controller
         ];
 
         $product = Product::create($data);
-        return redirect('/products/' . $product->id);
+        return redirect()->route('products.show',[$product]); //vai ['product'=>$product]
+        // return redirect('/products/' . $product->id);
     }
 
     public function show(Product $product) {
