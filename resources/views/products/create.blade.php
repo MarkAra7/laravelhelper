@@ -1,3 +1,15 @@
+
+<x-layout>
+  <x-slot:title>
+
+       Create Product
+
+    </x-slot>
+
+
+ <x-slot:header>
+    Create New Product
+     </x-slot>
 <form action="{{ route('products.store') }}" method="post">
     @csrf
     <input type="text" name="name">
@@ -7,3 +19,5 @@
 </form>
 
 <a href="{{ route('products.index') }}">Back to product list</a>
+
+</x-layout>

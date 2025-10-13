@@ -1,11 +1,20 @@
+<x-layout>
+  <x-slot:title>
+
+       Product List
+
+    </x-slot>
+     <x-slot:header>
+    All Of Your Products
+     </x-slot>
 <ul>
-    @foreach ($allProducts as $product)
+    @foreach ($products as $product)
         <li>
             <h1>{{ $product->name }}</h1>
             <p>{{ $product->description }}</p>
-            <a href="/products/{{ $product->id }}">Show</a>
-            <a href="/products/{{ $product->id }}/edit">Edit</a>
-            <form action="/products/{{ $product->id }}" method="post">
+            <a href="{{route('products.show', [$product] )}}">Show</a>
+            <a href="{{route('products.edit', [$product] )}}">Edit</a>
+            <form action="{{route('products.destroy', [$product] )}}" method="post">
                 @csrf
                 @method('DELETE')
 
@@ -16,3 +25,6 @@
 </ul>
 
 <a href="{{ route('products.create') }}">Create new product</a>
+
+
+</x-layout>
