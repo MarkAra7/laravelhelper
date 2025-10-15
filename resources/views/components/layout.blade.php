@@ -7,7 +7,16 @@
     </head>
 
     <body>
+            @if (session('status'))
 
+                <div style="color:green" class="alert alert-success">
+
+                    {{ session('status') }}
+
+                </div>
+            
+                
+            @endif
         <h1>{{ $header ?? 'Error' }}</h1>
 
         <hr/>

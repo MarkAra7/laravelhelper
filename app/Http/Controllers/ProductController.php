@@ -26,7 +26,7 @@ class ProductController extends Controller
 
 
         $product = Product::create($validated);
-        return redirect()->route('products.show',[$product]); //vai ['product'=>$product]
+        return redirect()->route('products.show',[$product])->with('status', 'Product Created!'); //vai ['product'=>$product]
         // return redirect('/products/' . $product->id);
     }
 
@@ -36,7 +36,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product) {
         $product->delete();
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('status', 'Product Delete!');
     }
 
     public function edit(Product $product) {
@@ -53,7 +53,7 @@ class ProductController extends Controller
         ];
 
         $product->update($data);
-       return  redirect()->route('products.show',[$product]);
+       return  redirect()->route('products.show',[$product])->with('status', 'Profile updated!');
         
     }
 }
