@@ -7,6 +7,13 @@
     </head>
 
     <body>
+        <div>
+
+        <x-navigation />
+
+        </div>
+
+
             @if (session('status'))
 
                 <div style="color:green" class="alert alert-success">
