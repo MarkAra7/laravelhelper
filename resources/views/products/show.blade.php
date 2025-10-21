@@ -1,17 +1,23 @@
 <x-layout>
-  <x-slot:title>
+    <x-slot:title>{{ $product->name }}</x-slot>
+    <x-slot:header>{{ $product->name }}</x-slot>
 
-       {{$product->name}}
-
-    </x-slot>
-     <x-slot:header>
-   See more OF "{{$product->name}}"
-     </x-slot>
-
-<h1>{{ $product->name }}</h1>
-<h4>Quantity: {{ $product->quantity }}</h4>
-<p>{{ $product->description }}</p>
-
-<a href="{{ route('products.index') }}">Back to all product list</a>
-
+    <div class="product-details">
+        <div class="product-card product-card-detailed">
+            <div class="product-info">
+                <h3 class="product-name">{{ $product->name }}</h3>
+                <div class="product-meta">
+                    <span class="product-quantity">Quantity: {{ $product->quantity }}</span>
+                </div>
+                <div class="product-description">
+                    <p>{{ $product->description }}</p>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <a href="{{ route('products.edit', $product) }}" class="btn btn-primary">Edit Product</a>
+                <a href="{{ route('products.index') }}" class="btn">Back to List</a>
+            </div>
+        </div>
+    </div>
 </x-layout>

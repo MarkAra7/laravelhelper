@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ $title ?? 'Layout' }}</title>
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-    <header>
-        <h2>{{ $title ?? 'Layout' }}</h2>
+    <header class="navbar">
+        <div class="navbar-brand">
+            <h1>{{ $title ?? 'Product Manager' }}</h1>
+        </div>
+        <nav class="navbar-nav">
+            <x-navigation />
+        </nav>
     </header>
 
-    <nav>
-        <x-navigation />
-    </nav>
-
-    <main>
+    <main class="content">
         @if (session('status'))
-            <div class="alert-success">
-                {{ session('status') }}
-            </div>
+            <div class="alert-success">{{ session('status') }}</div>
         @endif
 
-        <h1>{{ $header ?? 'Error' }}</h1>
-        <hr/>
+        <div class="page-header">
+            <h2>{{ $header ?? 'Page' }}</h2>
+        </div>
+        
+        <hr>
+        
         {{ $slot }}
     </main>
 </body>
