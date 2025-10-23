@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Create Product</x-slot:title>
     <x-slot:header>Create New Product</x-slot:header>
-
+    <x-slot:productCount>{{$productCount}}</x-slot>
     @if ($errors->any())
         <div class="alert alert-danger" role="alert" aria-live="assertive">
             <ul>

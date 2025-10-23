@@ -17,13 +17,22 @@
         </header>
 
         <aside class="sidebar">
-           <h2>Sidebar</h2>
+            @if (session('status'))
+            <h2>Notifications</h2>
+                <div class="alert-success">{{ session('status') }}</div>
+            @endif
+
+           <h2>Stats</h2>
+        
+        
+        <h3>Product Count {{$productCount ?? '0'}}<h3>
+          
+           
+            
         </aside>
 
         <main class="content">
-            @if (session('status'))
-                <div class="alert-success">{{ session('status') }}</div>
-            @endif
+  
 
             <div class="page-header">
                 <h2>{{ $header ?? 'Page' }}</h2>
@@ -35,7 +44,7 @@
         </main>
 
         <footer class="footer">
-            &copy; {{ date('Y') }} Uzmini
+            &copy; {{ date('Y') }} UzminiNu 
         </footer>
     </div>
 </body>

@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Product List</x-slot>
     <x-slot:header>All Of Your Products</x-slot>
-
+<x-slot:productCount>{{$productCount}}</x-slot>
     <div class="products-container">
         <ul class="product-list">
             @foreach ($products as $product)

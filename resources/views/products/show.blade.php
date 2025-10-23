@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>{{ $product->name }}</x-slot>
     <x-slot:header>{{ $product->name }}</x-slot>
-
+    <x-slot:productCount>{{$productCount}}</x-slot>
     <div class="product-details">
         <div class="product-card product-card-detailed">
             <div class="product-info">

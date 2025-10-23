@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Edit {{ $product->name }}</x-slot>
     <x-slot:header>Edit {{ $product->name }}</x-slot>
-
+    <x-slot:productCount>{{$productCount}}</x-slot>
     <div class="form-container">
         <form action="{{ route('products.update', $product) }}" method="post" class="product-form">
             @csrf
